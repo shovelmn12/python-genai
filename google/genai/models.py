@@ -124,6 +124,13 @@ def _Candidate_from_mldev(
         [item for item in getv(from_object, ['safetyRatings'])],
     )
 
+  if getv(from_object, ['groundingAttributions']) is not None:
+    setv(
+        to_object,
+        ['grounding_attributions'],
+        [item for item in getv(from_object, ['groundingAttributions'])],
+    )
+
   return to_object
 
 
@@ -2397,6 +2404,11 @@ def _GenerationConfig_to_vertex(
 
   if getv(from_object, ['top_p']) is not None:
     setv(to_object, ['topP'], getv(from_object, ['top_p']))
+
+  if getv(from_object, ['enable_enhanced_civic_answers']) is not None:
+    raise ValueError(
+        'enable_enhanced_civic_answers parameter is not supported in Vertex AI.'
+    )
 
   return to_object
 

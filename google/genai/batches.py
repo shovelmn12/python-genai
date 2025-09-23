@@ -433,6 +433,13 @@ def _Candidate_from_mldev(
         [item for item in getv(from_object, ['safetyRatings'])],
     )
 
+  if getv(from_object, ['groundingAttributions']) is not None:
+    setv(
+        to_object,
+        ['grounding_attributions'],
+        [item for item in getv(from_object, ['groundingAttributions'])],
+    )
+
   return to_object
 
 
