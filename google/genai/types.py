@@ -7170,6 +7170,12 @@ class _UpscaleImageAPIConfig(_common.BaseModel):
       default=None,
       description="""Cloud Storage URI used to store the generated images.""",
   )
+  safety_filter_level: Optional[SafetyFilterLevel] = Field(
+      default=None, description="""Filter level for safety filtering."""
+  )
+  person_generation: Optional[PersonGeneration] = Field(
+      default=None, description="""Allows generation of people by the model."""
+  )
   include_rai_reason: Optional[bool] = Field(
       default=None,
       description="""Whether to include a reason for filtered-out images in the
@@ -7197,6 +7203,10 @@ class _UpscaleImageAPIConfig(_common.BaseModel):
       output image will have be more different from the input image, but
       with finer details and less noise.""",
   )
+  add_watermark: Optional[bool] = Field(
+      default=None,
+      description="""Whether to add a watermark to the generated images.""",
+  )
   labels: Optional[dict[str, str]] = Field(
       default=None,
       description="""User specified labels to track billing usage.""",
@@ -7217,6 +7227,12 @@ class _UpscaleImageAPIConfigDict(TypedDict, total=False):
 
   output_gcs_uri: Optional[str]
   """Cloud Storage URI used to store the generated images."""
+
+  safety_filter_level: Optional[SafetyFilterLevel]
+  """Filter level for safety filtering."""
+
+  person_generation: Optional[PersonGeneration]
+  """Allows generation of people by the model."""
 
   include_rai_reason: Optional[bool]
   """Whether to include a reason for filtered-out images in the
@@ -7239,6 +7255,9 @@ class _UpscaleImageAPIConfigDict(TypedDict, total=False):
       pixels are more respected. With a lower image preservation factor, the
       output image will have be more different from the input image, but
       with finer details and less noise."""
+
+  add_watermark: Optional[bool]
+  """Whether to add a watermark to the generated images."""
 
   labels: Optional[dict[str, str]]
   """User specified labels to track billing usage."""
@@ -13117,6 +13136,12 @@ class UpscaleImageConfig(_common.BaseModel):
       default=None,
       description="""Cloud Storage URI used to store the generated images.""",
   )
+  safety_filter_level: Optional[SafetyFilterLevel] = Field(
+      default=None, description="""Filter level for safety filtering."""
+  )
+  person_generation: Optional[PersonGeneration] = Field(
+      default=None, description="""Allows generation of people by the model."""
+  )
   include_rai_reason: Optional[bool] = Field(
       default=None,
       description="""Whether to include a reason for filtered-out images in the
@@ -13144,6 +13169,10 @@ class UpscaleImageConfig(_common.BaseModel):
       output image will have be more different from the input image, but
       with finer details and less noise.""",
   )
+  add_watermark: Optional[bool] = Field(
+      default=None,
+      description="""Whether to add a watermark to the generated images.""",
+  )
   labels: Optional[dict[str, str]] = Field(
       default=None,
       description="""User specified labels to track billing usage.""",
@@ -13163,6 +13192,12 @@ class UpscaleImageConfigDict(TypedDict, total=False):
 
   output_gcs_uri: Optional[str]
   """Cloud Storage URI used to store the generated images."""
+
+  safety_filter_level: Optional[SafetyFilterLevel]
+  """Filter level for safety filtering."""
+
+  person_generation: Optional[PersonGeneration]
+  """Allows generation of people by the model."""
 
   include_rai_reason: Optional[bool]
   """Whether to include a reason for filtered-out images in the
@@ -13185,6 +13220,9 @@ class UpscaleImageConfigDict(TypedDict, total=False):
       pixels are more respected. With a lower image preservation factor, the
       output image will have be more different from the input image, but
       with finer details and less noise."""
+
+  add_watermark: Optional[bool]
+  """Whether to add a watermark to the generated images."""
 
   labels: Optional[dict[str, str]]
   """User specified labels to track billing usage."""
